@@ -79,6 +79,11 @@ public class SimpleTestCase {
                 } else if (xae.errorCode == XAException.XAER_RMFAIL ){
                     gotRMFAIL = true;
                 }
+                else {
+                    System.err.println("Unexpected error code: " + xae.errorCode);
+                    xae.printStackTrace();
+                    failure = true;
+                }
             }
         } finally {
             try {
