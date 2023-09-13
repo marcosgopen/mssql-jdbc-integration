@@ -69,6 +69,8 @@ public class SimpleTestCase {
 
             try {
                 xar.commit(xid, false);
+                System.err.println("The commit was not expected to succeed, did you toggle the network?");
+                failure = true;
             } catch (XAException xae) {
                 if (xae.errorCode == XAException.XAER_RMERR) {
                     System.err.println("the error code should not be XAER_RMERR");
